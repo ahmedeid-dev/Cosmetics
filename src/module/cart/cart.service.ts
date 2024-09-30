@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCartDto } from './dto/create-cart.dto';
 import { UpdateCartDto } from './dto/update-cart.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Cart } from 'src/schema/cart.schema';
 
 @Injectable()
 export class CartService {
+  
+  constructor(@InjectModel(Cart.name) private CartModel: Model<Cart>) {}
   create(createCartDto: CreateCartDto) {
     return 'This action adds a new cart';
   }
