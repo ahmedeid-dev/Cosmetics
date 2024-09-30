@@ -11,9 +11,12 @@ import { OrderModule } from './module/order/order.module';
 import { CouponModule } from './module/coupon/coupon.module';
 import { ReviewModule } from './module/review/review.module';
 import { AuthModule } from './module/auth/auth.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [UserModule, ProductModule, CategoryModule, SubcategoryModule, BrandModule, CartModule, OrderModule, CouponModule, ReviewModule, AuthModule],
+  imports: [UserModule, ProductModule, CategoryModule, SubcategoryModule, BrandModule, CartModule, OrderModule, CouponModule, ReviewModule, AuthModule,
+    MongooseModule.forRoot('mongodb://localhost/cosmetics')
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
